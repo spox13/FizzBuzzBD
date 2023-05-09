@@ -1,0 +1,13 @@
+﻿@page
+@model FizzBuzzBD.Pages.SavedInSessionModel
+@{
+    ViewData["Title"] = "Data in session";
+
+}
+
+@foreach (var models in Model.ListOfSessions)
+    {
+        <li>
+            @models.Name, @models.Year - @models.Leap
+        </li>
+    }

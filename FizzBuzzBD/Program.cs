@@ -13,6 +13,8 @@ builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
     .AddEntityFrameworkStores<ApplicationDbContext>();
 builder.Services.AddRazorPages();
+builder.Services.AddDbContext<PeopleContext>(options =>
+options.UseSqlServer(builder.Configuration.GetConnectionString("FizzBuzzDB")));
 builder.Services.AddMemoryCache();
 
 builder.Services.Configure<IdentityOptions>(options =>

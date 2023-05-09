@@ -1,10 +1,26 @@
 ﻿@page
-@model IndexModel
+@model FizzBuzzBD.Pages.IndexModel
 @{
-    ViewData["Title"] = "Home page";
+    ViewData["Title"] = "Fizz Buzz - Leap Year";
 }
-
-<div class="text-center">
+<div class="text-left">
     <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <form method="post">
+        <div class="form-group">
+            <label asp-for="FizzBuzz.Year"></label>
+            <input asp-for="FizzBuzz.Year" value="" class="form-control" />
+            <span asp-validation-for="FizzBuzz.Year" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="FizzBuzz.Name"></label>
+            <input asp-for="FizzBuzz.Name" class="form-control" />
+            <span asp-validation-for="FizzBuzz.Name" class="text-danger"></span>
+        </div>
+        <button type="submit" class="btn btn-primary">Sprawdź</button>
+    </form>
 </div>
+
+@if (ViewData["Message"] != null)
+{
+    <p>@ViewData["Message"]</p>
+}
